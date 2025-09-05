@@ -10,8 +10,13 @@ public class Main {
         // Load Spring context from config.xml in classpath
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 
-        // Retrieve bean by ID
+        // Retrieve bean by name
         Student st1 = (Student) context.getBean("student1");
+        Student st2 = (Student) context.getBean("student2");
+        Student st3 = (Student) context.getBean("student3");
+
         System.out.println(st1);
+        System.out.println(st2);
+        System.out.println(st3);
     }
 }
