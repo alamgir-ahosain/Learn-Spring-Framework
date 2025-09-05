@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- This is Our Bean -->
+    <!-- Value as tag -->
     <bean class="com.springcore.Student" name="student1">
-        <property name="id">
-            <value>CE21012</value>
-        </property>
-        <property name="name">
-            <value>Alamgir</value>
-        </property>
+        <property name="id"> <value>CE21012</value> <!-- call setter method--></property>
+        <property name="name">  <value>Alamgir</value> </property>
+    </bean>
+    <!-- Value as attribute -->
+    <bean class="com.springcore.Student" name="student2">
+        <property name="id" value="CE21012"/>
+        <property name="name" value="Alamgir"/>
+    </bean>
+    <!-- Value as P -reference -->
+    <bean class="com.springcore.Student" name="student3" p:id="CE21012" p:name="Alamgir">
+       
     </bean>
 </beans>
