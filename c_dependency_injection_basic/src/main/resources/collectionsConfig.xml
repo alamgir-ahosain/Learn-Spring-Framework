@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- This is Our Bean -->
+    <!-- Value as tag -->
+    <bean id="info1" class="com.springcore.collections.Info">
+        <property name="name" value="Alamgir"/>
+        <property name="infoList">
+            <list>
+                <value>List : Alamgir</value>
+                <value>List : CE21012</value>
+            </list>
+        </property>
+        <property name="infoSet">
+            <set>
+                <value>Set : Alamgir</value>
+                <value>Set : CE21012</value>
+            </set>
+        </property>
+        <property name="infoMap">
+            <map>
+                <entry key="Name" value="Alamgir"/>
+                <entry key="Id" value="CE21012"/>
+            </map>
+        </property>
+        <property name="infoProperties">
+            <props>
+                <prop key="name">Properties:Alamgir</prop>
+                <prop key="Id">Properties:CE21012</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
