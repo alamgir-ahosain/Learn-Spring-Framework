@@ -1,0 +1,72 @@
+ 
+ What is Spring?
+    1. spring is Dependency Injection framewok to make 
+    java aplication loosly coupled.
+    2. Makes the easy developement of JavaEE Applicatin.
+
+ Loosly coupled:
+ Tight coupled: 
+ Inversion of Control
+ Dependency Injection
+
+
+                             ___________   Spring Framewok Modules  ______________
+
+
+                            1. Core Container Layer
+    1. core : 
+      1. Consist of the Core,Beans,Context and SpEL.
+      2. Provides the core functionality (IoC, Dependency Injection).
+    2. beans :
+      1. Manages beans (objects) and their life cycle.
+      2. A complex implementation of the factory pattern provided by the Bean module.
+    3. Context :
+      1. Builds on Core and Beans modules.
+      2. Provides access to configured objects (beans).
+      3. Main entry point: ApplicationContext interface for dependency injection.
+    4. SpEL(Spring-Expression Language) : 
+      1. Expression language for searching/querying/manipulating objects at runtime.
+      2. Supports property access, method calls, array/collection access, variable use, and bean retrieval from IoC container
+
+
+2. AOP: provides AOP (Aspect Oriented Programming) features .
+3. Aspect : 
+    1. A module that encapsulates cross-cutting logic.
+    2. Example: A logging aspect that runs before/after methods.
+4. Instrumentation:
+    1. Provides class instrumentation and classloader implementations for certain servers.
+    2. Configurable via XML, annotations (@Aspect, @Before, @After, etc.), or AspectJ integration.
+5. Messaging :
+    1. Used for asynchronous communication between applications/components.
+    2. Supports point-to-point (Queue) and publish-subscribe (Topic) models.
+    3. Spring provides spring-jms for Java Messaging Service.
+
+     
+                    6. Data Access/ integration Layer
+    1. JDBC(Java Database Connectivity)
+        1. Contains a JDBC abstraction layer.
+        2. Simplifies JDBC code with less boilerplate.
+
+    2. ORM( object-relational Mapping )
+        1. Integrates with ORM frameworks (Hibernate, JPA, JDO, iBatis) 
+        2. support declarative transactions for data persistence.
+
+    3. OXM(Object/XML mapping): Supports Object/XML mapping (JAXB, Castor, XMLBeans, JiBX, XStream).
+    4. JMS(Java Messaging Service): Provides features for producing/consuming  or sending/receiving messages.
+    5. Transaction : Supports programmatic and declarative transaction management for POJOs.
+
+
+
+                        7. Web Layer
+
+    1. web: Basic web-oriented features(multipart file upload, REST clients).
+    2. Web-Servlet: MVC(Model View Controller) implementation for web applications.
+    3. Web-Portlet: MVC implementation for portlet environments; similar to Web-Servlet.
+    4. websocket: WebSocket and real-time communication support.
+    5. Web-Struts: Deprecated support for integrating Struts, use Struts 2.0 or Spring MVC.
+
+
+                            8. Test Layer
+
+    1. Supports testing Spring components with JUnit/TestNG.
+    2. provides ApplicationContext caching and mock objects for isolated testing.
