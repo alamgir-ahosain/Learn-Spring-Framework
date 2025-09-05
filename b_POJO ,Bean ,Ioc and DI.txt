@@ -1,0 +1,106 @@
+                      
+                       _____________ POJO VS Bean_______________________________________
+
+POJO (Plain Old Java Object): 
+        1. A simple Java object, not bound by any special restrictions or frameworks.
+        2. It can be any class with fields, getters/setters, and methods.
+
+Bean (in Spring):
+        1. A POJO that is managed by the Spring IoC container. 
+        2. It is instantiated, configured, and injected by Spring.
+
+All Spring beans are POJOs, but not all POJOs are Spring beans.
+
+
+
+
+
+          
+                __________________________________ Dependency Injection _________________________________
+
+ 1. What is Dependency Injection (DI), and how is it related to IoC?
+    A design pattern where an object’s dependencies are provided (injected)
+    by an external source rather than the object creating them itself.
+    Example of dependencies:
+        1. A car depends on an engine and tires.
+        2. A smartphone depends on a battery and a screen.
+
+Relation to IoC :
+    DI is the implementation of IoC in Spring; the IoC container injects dependencies into beans automatically.
+
+Types of Dependency Injection             
+    1. Constructor Injection: provided via the class constructor.
+    2. Setter/property Injection: provided via setter methods.
+    3. Field Injection: injected directly into fields using annotations (e.g., `@Autowired`).
+
+Role of @Autowired in Spring Boot
+    @Autowired tells Spring to automatically inject a bean into another bean, letting the IoC container resolve and provide the dependency at runtime.                  
+
+
+The IoC Container in Spring handles mainly three types of dependencies
+    1. Primitive values (e.g., int, float, String, etc.)
+    2. Collection types (List, Set, Map, etc.)
+    3. Reference types (objects of other beans/classes)
+
+
+                           _________________ Spring IoC Container _________________________________
+                           
+Responsible for:                           
+    2. Bean Creation: Responsible for instantiating, configuring, and assembling beans.
+    1. Bean Lifecycle Management: Manages the lifecycle of bean(objects).
+    3. DI: Injecting dependencies(bean) into other beans. 
+
+Key Points:
+    1. Enable loosely coupled applications,
+    where objects do not need to know about how their dependencies are created.    
+    2. Implements IoC through DI to provide dependencies at runtime.
+    3. primarily represented by the ApplicationContext.
+
+
+Types of IoC Container
+    1. BeanFactory
+        1. Lazily loads beans (creates them only when requested).
+        2. Provides basic dependency injection.
+    2. ApplicationContext
+        1. An interface type in Spring.
+        2. Extends BeanFactory with more features.
+        3. Supports Internationalization (i18n),Event propagation,Bean post-processing,Access to resources (files, URLs).
+
+Types of ApplicationContext subclasses:
+    1. ClassPathXmlApplicationContext – Load Context from XML in classpath.
+    2. FileSystemXmlApplicationContext – XML from file system.
+    3. AnnotationConfigApplicationContext – Java-based config using annotation(@Configuration).
+    4. WebApplicationContext – For web apps integrating with Spring MVC.
+    5. GenericApplicationContext – Flexible,can combine XML ,annotation and programmatic Configuration.
+
+
+configuration metadata
+    Where we declare beans and it's dependency.The container knows what to instantiate and configure using configuration metadata, which can be defined in three ways:
+    1. XML
+            1. Beans and their dependencies are declared in an XML file (commonly config.xml or applicationContext.xml).
+            2. Spring container reads the XML file and creates objects accordingly.
+    2. Java annotations
+            1. Done by annotating classes, methods, or fields.
+            2. @Autowired – Most common annotation; tells the IoC container to inject dependencies.
+
+    3. Java code
+            1. @Configuration – Marks a class as a source for bean definitions.
+            2. @Bean – Indicates that a method’s return object should be managed by the IoC container.
+
+
+               
+IoC Container Lifecycle
+    1. Initialization: Container starts, reads configuration, and loads bean definitions.
+    2. Bean Instantiation: Creates bean objects using constructors or factory methods.
+    3. Dependency Injection (DI): Injects required dependencies into beans.
+    4. Lifecycle Management: Calls `@PostConstruct` methods after initialization and `@PreDestroy` before    destruction.
+    5. Singleton Scope:** By default, one instance per bean is maintained in the container.
+    6. ApplicationContext Events: Publishes events that components can listen to for loosely coupled, event-driven design.
+    7. Bean Post-Processing: BeanPostProcessors can modify beans before and after initialization.
+
+
+
+Key Points: 
+ Bean : An object managed by the IOC container.
+ DI – Container injects dependencies.
+ IoC – DI is Spring’s way of implementing IoC. 
