@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- This is Our Bean -->
+    <bean id="bReference" class="com.springcore.reference.B">
+        <property name="name" value="Alamgir Hosain"/>
+    </bean>
+    <bean id="aReference" class="com.springcore.reference.A">
+        <property name="id" value="CE21012"/>
+       
+        <!-- <property name="classB"> <ref bean="bReference"/> -->
+         <property name="classB"  ref="bReference">
+
+
+        </property>
+    </bean>
+</beans>
+<!--  -->
