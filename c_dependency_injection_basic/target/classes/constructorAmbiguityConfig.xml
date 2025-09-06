@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- This is Our Bean -->
+    <bean id="add" class="com.springcore.e_constructor_Ambiguity.Addition">
+
+               <!-- use type -->
+        <!-- <constructor-arg value="1" type="int" />
+        <constructor-arg value="2" type="int" /> -->
+
+        <!-- <constructor-arg value="12" type="String"/>
+        <constructor-arg value="13" type="String"/> -->
+
+        <!-- <constructor-arg value="30.54" type="double"/>
+        <constructor-arg value="30.54" type="double"/> -->
+
+        <!-- <constructor-arg value="20.2" type="float"/>
+        <constructor-arg value="20.2" type="float"/> -->
+
+
+              <!-- use Type +index -->
+        <!-- <constructor-arg value="10" type="int" index="0" />  int First-->
+       <!--> <constructor-arg value="12" type="String" index="1" /> String Second -->
+
+               <!-- use Name +type -->
+       <constructor-arg name="aName" type="int" value="10"/>
+       <constructor-arg name="bName" type="int" value="2"/>
+        
+    </bean>
+
+</beans>
