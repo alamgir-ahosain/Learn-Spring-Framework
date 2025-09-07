@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/util
+           https://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- Enable annotation processing -->
+    <context:annotation-config />
+
+                   <!-- Bean definition -->
+                    
+    <!-- Standalone List -->
+    <util:list id="myListBean">
+        <value>Alamgir</value>
+        <value>CE21012</value>
+    </util:list>
+
+     <!-- Standalone Map -->
+    <util:map id="myMapBean">
+        <entry key="Alamgir" value="CE21012"/>
+    </util:map>
+
+        <!-- Standalone Properties -->
+    <util:properties id="myPropertyBean">
+        <prop key="name">Alamgir</prop>
+        <prop key="Id">CE21012</prop>
+    </util:properties>
+
+    <bean class="com.springcore.standalone_collections.A" id="beanA">
+        <!-- <property name="a1"><ref bean="myListBean"/></property> -->
+        <property name="list"  ref="myListBean"/>
+        <property name="map"  ref="myMapBean"/>
+        <property name="properties"  ref="myPropertyBean"/>
+    </bean>
+</beans>
