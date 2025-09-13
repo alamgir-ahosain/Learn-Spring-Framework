@@ -1,0 +1,3 @@
+com\hibernate\App.class
+com\hibernate\connection_provider\Hibernate.class
+com\hibernate\entities\Student.class
