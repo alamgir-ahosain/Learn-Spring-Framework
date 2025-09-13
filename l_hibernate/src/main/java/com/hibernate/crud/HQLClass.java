@@ -5,6 +5,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 import com.hibernate.connection_provider.Hibernate;
 import com.hibernate.entities.Student;
 
@@ -66,7 +68,7 @@ public class HQLClass {
 
     }
 
-    // Update 
+    // Update
     public void updateStudentById(int id, String name) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -88,7 +90,7 @@ public class HQLClass {
         }
     }
 
-    // Delete 
+    // Delete
     public void deleteStudentById(int id) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -102,6 +104,30 @@ public class HQLClass {
                 transaction.commit();
             } else {
                 System.out.println("Failed to Delete");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Pagination
+    public void getAllStudentsPaginated(int pageNo, int pageSize) {
+        try (Session session = sessionFactory.openSession()) {
+
+            String hql = "FROM Student";
+            Query<Student> query = session.createQuery(hql, Student.class);
+            
+            query.setFirstResult((pageNo - 1) * pageSize);
+            query.setMaxResults(pageSize);
+
+            List<Student> students = query.getResultList();
+            if (!students.isEmpty()) {
+                for (Student student : students) {
+                    System.out.println(student);
+                }
+            } else {
+                System.out.println("No students found.");
             }
 
         } catch (Exception e) {
