@@ -1,6 +1,4 @@
 
-
-
 1. daoClass
 2. HibernateTemplate
 3. SessionFactory
